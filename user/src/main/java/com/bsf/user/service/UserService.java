@@ -32,6 +32,8 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-
+    public void deleteAllUsers() {
+        userRepository.deleteAll();
+    }
 
 }

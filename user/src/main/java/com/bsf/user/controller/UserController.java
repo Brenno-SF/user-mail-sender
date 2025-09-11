@@ -28,5 +28,9 @@ public class UserController {
         List<UserDTO> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
-
+    @DeleteMapping("/deleteAll")
+    public ResponseEntity<Void> deleteAllUsers() {
+        userService.deleteAllUsers();
+        return ResponseEntity.noContent().build();
+    }
 }
