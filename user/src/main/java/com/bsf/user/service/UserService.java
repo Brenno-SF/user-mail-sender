@@ -25,6 +25,13 @@ public class UserService {
         return UserMapper.toDto(savedUser);
     }
 
+    public List<UserDTO> getAllUsers() {
+        List<UserModel> users = userRepository.findAll();
+        return users.stream()
+                .map(UserMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
 
 
 }

@@ -23,5 +23,10 @@ public class UserController {
         UserDTO savedUser = userService.saveUser(userDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
+    @GetMapping("/all")
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        List<UserDTO> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
+    }
 
 }
