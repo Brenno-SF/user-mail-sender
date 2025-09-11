@@ -1,8 +1,8 @@
 spring:
-  aplication:
-    name: email
-  datsource:
-    url: jdbc:postgresql://localhost:5433/email
+  application:
+    name: user
+  datasource:
+    url: jdbc:postgresql://localhost:5433/email-db
     username: postgres
     password: password
     driver-class-name: org.postgresql.Driver
