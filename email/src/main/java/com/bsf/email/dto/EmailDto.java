@@ -2,7 +2,7 @@ package com.bsf.email.dto;
 
 import java.util.UUID;
 
-public record EmailDto(
+public record EmailDTO(
         UUID emailId,
         UUID userId,
         String emailFrom,
