@@ -20,7 +20,7 @@ public class UserController {
 
     @PostMapping("create")
     public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDTO) {
-        UserDTO savedUser = userService.saveUser(userDTO);
+        UserDTO savedUser = userService.saveAndSendUser(userDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
     @GetMapping("/all")
