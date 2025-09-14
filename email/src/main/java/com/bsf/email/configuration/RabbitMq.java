@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMq {
     private final String queueName = "email-queue";
 
-    @Bean
     public Queue queue() {
         return new Queue(queueName, true);
     }
