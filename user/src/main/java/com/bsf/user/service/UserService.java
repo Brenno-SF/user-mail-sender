@@ -2,6 +2,7 @@ package com.bsf.user.service;
 
 import com.bsf.user.domain.UserModel;
 import com.bsf.user.dto.UserDTO;
+import com.bsf.user.exceptions.EmailExistsException;
 import com.bsf.user.mapper.UserMapper;
 import com.bsf.user.producer.UserProducer;
 import com.bsf.user.repository.UserRepository;
@@ -24,6 +25,11 @@ public class UserService {
     @Transactional
     public UserDTO saveAndSendUser(UserDTO userDTO) {
         UserModel userModel = UserMapper.toEntity(userDTO);
+
+        if(userRepository.existsByEmail(userModel.getEmail())) {
+            throw new EmailExistsException("Email already exists");
+        }
+
         UserModel savedUser = userRepository.save(userModel);
         userProducer.sendUser(savedUser);
 
